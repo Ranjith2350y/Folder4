@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .login-form {
+            max-width: 300px;
+            margin: auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+        .login-form div {
+            margin-bottom: 1em;
+        }
+        .login-form label {
+            margin-bottom: .5em;
+            color: #333333;
+        }
+        .login-form input[type="text"], .login-form input[type="password"] {
+            border: 1px solid #CCCCCC;
+            padding: 1em;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            padding: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 1em;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="error" id="errorMessage"></div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            if (email !== 'Raja@gmail.com') {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            if (password !== 'raja') {
+                errorMessage.textContent = 'Invalid password. Please try again.';
+                return;
+            }
+
+            errorMessage.textContent = '';
+            // Display loading message
+            errorMessage.textContent = 'Logging in...';
+            
+            // Simulate an async operation (e.g., server request)
+            setTimeout(function() {
+                // Redirect to another website upon successful login
+                window.location.href = 'https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://xhamster.desi/tags/xmaster&ved=2ahUKEwiKmeulscGGAxXPbmwGHbMTAFcQFnoECAYQAQ&usg=AOvVaw0SOiflJ6h6HMeGC4G-UzG8'; // Replace with the desired URL
+            }, 1000); // Simulated delay of 1 second
+        });
+
+        function validateEmail(email) {
+            var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
